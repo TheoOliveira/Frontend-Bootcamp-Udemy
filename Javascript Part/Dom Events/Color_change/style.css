@@ -1,0 +1,13 @@
+body {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.purple {
+ background-color: purple;
+}
