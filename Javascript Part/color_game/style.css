@@ -1,10 +1,7 @@
 body {
   background-color: #232323;
 }
-.main {
-  margin: 0 auto;
-  max-width: 600px;
-}
+
 
 .square {
   width: 30%;
@@ -26,7 +23,17 @@ h1 {
 }
 
 #message {
-  margin-block-start: 0.67em;
-  color: white;
-  text-align: center;
+  color: black;
+}
+
+#stripe{
+    background: white;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px; 
+}
+
+#stripe button {
+  text-transform: uppercase;
+  background-color: white;
 }
