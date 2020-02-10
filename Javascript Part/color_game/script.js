@@ -8,55 +8,45 @@ corEscolhidaDisplay.textContent = corEscolhida; // muda o text e adiciona o nume
 let messageDisplay = document.querySelector('#message')
 let h1 = document.querySelector('h1');
 let resetBtn = document.querySelector('#reset');
-var modeButtons = document.querySelectorAll('.mode');
-var reseteButton = document.querySelector('#reset')
+let modeButtons = document.querySelectorAll('.mode');
 
-easyBtn.addEventListener('click', function(){
-    hardBtn.classList.remove('selected');
-    easyBtn.classList.add('selected');
-    numSqs = 3;
-    colors = generateRandomColor(numSqs);
-    corEscolhida = pickColor();
-    corEscolhidaDisplay.textContent = corEscolhida;
-    for(let i =0; i < quadrados.length; i++){
-        if(colors[i]){
-            quadrados[i].style.background = colors[i];
+for(let i =0; i <modeButtons.length; i++){
+    modeButtons[i].addEventListener('click', function(){
+        modeButtons[0].classList.remove('selected');
+        modeButtons[1].classList.remove('selected');
+        this.classList.add('selected');
+        if(this.textContent === "Easy"){
+            numSqs = 3;
         }else{
-            quadrados[i].style.display = 'none';
+            numSqs = 6;
         }
-    }
-})
+        reset();
+    })
+}
 
-
-hardBtn.addEventListener('click', function(){
-    easyBtn.classList.remove('selected');
-    hardBtn.classList.add('selected');
-    numSqs = 6;
-    colors = generateRandomColor(numSqs);
-    corEscolhida = pickColor();
-    corEscolhidaDisplay.textContent = corEscolhida;
-    for(let i =0; i < quadrados.length; i++){
-        quadrados[i].style.background = colors[i];
-        quadrados[i].style.display = 'block';
-        }
-    }
-    
-)
-
-resetBtn.addEventListener('click', function () {
+function reset(){
     colors = generateRandomColor(numSqs);
     corEscolhida = pickColor(); // seleciona a cor a ser acertada
     corEscolhidaDisplay.textContent = corEscolhida;
     messageDisplay.textContent= '';
-    this.textContent = 'Novas Cores';
-    if (resetBtn.textContent = 'Jogar Novamente') {
-        resetBtn.textContent = 'Novas Cores';
+    resetBtn.textContent = 'Novas Cores';
+    if (this.textContent = 'Jogar Novamente') {
+        this.textContent = 'Novas Cores';
     }
     for (let i = 0; i < quadrados.length; i++) { //roda os valores em loop em cada quadrado
         /// adiciona as cores iniciais
-        quadrados[i].style.backgroundColor = colors[i];
+        if(colors[i]){
+            quadrados[i].style.display = 'block';
+            quadrados[i].style.backgroundColor = colors[i];
+
+        }else{
+            quadrados[i].style.display = 'none';
+        }
     }
     h1.style.backgroundColor = 'steelblue';
+}
+resetBtn.addEventListener('click', function () {
+    reset();
 });
 
 for (let i = 0; i < quadrados.length; i++) { //roda os valores em loop em cada quadrado
@@ -73,7 +63,7 @@ for (let i = 0; i < quadrados.length; i++) { //roda os valores em loop em cada q
             resetBtn.textContent = 'Jogar Novamente';
             h1.style.backgroundColor = corClicada;
         } else {
-            this.style.backgroundColor = '#232323';
+            quadrados[i].style.backgroundColor = '#232323';
             messageDisplay.textContent = "Tente novamente!";
         }
     });
