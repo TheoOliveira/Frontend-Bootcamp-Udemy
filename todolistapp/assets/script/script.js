@@ -16,11 +16,18 @@ for (let el of completeBtn) {
 //  Deleta o item
 
 for(let el of deleteBtn){
-    el.addEventListener('click', (event)=>{
+    el.addEventListener("click", (event)=>{
         el.parentNode.remove(); //criar animação no js de fadeout com função
         event.stopPropagation();
     })
 }
+
+/* function removeElement(element) {
+    // Removes an element from the document
+    let elementName = document.getElementsByClassName(element);
+    elementName.parentNode.removeChild(element);
+} */
+
 
 // Adiciona input com enter
 

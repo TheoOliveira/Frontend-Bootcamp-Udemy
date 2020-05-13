@@ -2,9 +2,18 @@
     width: 360px;
     margin: 0 auto;
     border: solid 1px gray;
+    text-align: center;
 }
 
 .completed{
     color: red;
     text-decoration: line-through;
+}
+ul{
+    margin-left: 20%;
+    text-align:justify;
+}
+
+li {
+    list-style-type: none;
 }
