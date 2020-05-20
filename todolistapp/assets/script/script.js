@@ -1,16 +1,20 @@
 //Variaveis
 
-let completeBtn = document.querySelectorAll('li');
+let completeBtn = document.getElementById('li');
 let input = document.querySelector(`input[type='text']`)
 let ul = document.getElementById('ul');
 
 //Completa  a tarefa ao clicar
 
-for (let el of completeBtn) {
-    el.addEventListener('click', () => {
-        el.classList.toggle('completed');
-    })
-}
+    // li.addEventListener('click', (e) => {
+    //     let val = e.target;
+    //     if(val.tagName.toUpperCase() == 'LI'){
+    //       val.classList.toggle('completed');
+    //     }
+    //     //e.classList.toggle('completed');
+    //
+    // })
+
 
 //  Deleta o item
 /* function deleteTask(){
@@ -25,7 +29,7 @@ for(let el of deleteBtn){
 ul.addEventListener("click",(e)=> {
     let tgt = e.target;
     if (tgt.tagName.toUpperCase() == "LI") {
-      tgt.parentNode.removeChild(tgt); 
+      tgt.parentNode.removeChild(tgt);
     }
   });
 
