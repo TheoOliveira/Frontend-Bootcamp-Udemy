@@ -1,13 +1,13 @@
 //Variaveis
 
-let completeBtn = document.getElementById('li');
+let li = document.getElementById ('li');
 let input = document.querySelector(`input[type='text']`)
 let ul = document.getElementById('ul');
 
 //Completa  a tarefa ao clicar
 
     // li.addEventListener('click', (e) => {
-    //     let val = e.target;
+    //     let val = e.tTagNamearget;
     //     if(val.tagName.toUpperCase() == 'LI'){
     //       val.classList.toggle('completed');
     //     }
@@ -15,26 +15,34 @@ let ul = document.getElementById('ul');
     //
     // })
 
+let val = 'incompleto';
 
-//  Deleta o item
-/* function deleteTask(){
-for(let el of deleteBtn){
-    el.addEventListener("click", (event)=>{
-        el.parentNode.remove(); //criar animação no js de fadeout com função
-        event.stopPropagation();
-    })
-}
-} */
-// novo metodo para deletar
-ul.addEventListener("click",(e)=> {
+// Complete item and delete
+function completeItem(){
+  ul.addEventListener("click",(e)=> {
     let tgt = e.target;
-    if (tgt.tagName.toUpperCase() == "LI") {
-      tgt.parentNode.removeChild(tgt);
+    if (tgt.tagName.toUpperCase() == "LI" && val == 'incompleto') {
+      tgt.classList.toggle('completed');
+      val = 'completo';
+    }else {
+      removeAnimation(tgt);
+      val= 'incompleto';
     }
+
   });
 
+}
+// tentativa de criar efeito de fadeOut
+function removeItem(element) {
+    element.remove();
+}
+function removeAnimation(element) {
+  element.classList.add('fade-out');
+  
+  // setInterval(removeItem(element));
+}
 
-// Adiciona input com enter
+
 
 input.addEventListener('keypress',(e)=>{
     console.log(e);
@@ -42,11 +50,9 @@ input.addEventListener('keypress',(e)=>{
         let text = input.value;
         input.value = '';
         let li = document.createElement('li');
-        let span = document.createElement('span');
         ul.appendChild(li);
-
         li.append(`${text}`);
     }
 })
 
-/* deleteTask(); */
+completeItem();

@@ -17,3 +17,8 @@ ul{
 li {
     list-style-type: none;
 }
+
+.fade-out {
+    transition: 2s;
+    opacity: 0;
+}
