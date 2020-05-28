@@ -5,9 +5,14 @@
     text-align: center;
 }
 
-.completed{
+.completo{
     color: red;
     text-decoration: line-through;
+}
+
+.imcompleto{
+    color: black;
+    text-decoration: none;
 }
 ul{
     margin-left: 20%;
